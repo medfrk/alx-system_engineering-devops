@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -1Ap | sed ':a;N;$!ba;s/\n/, /g;s/\/,/\//g' | sed 's/^\.\s*\n/.\n..,\n/; s/^\.\./..,/g' | LC_COLLATE=C sort -d --key=1.1,1.1 --key=1.2n,1.2 --key=2 --field-separator=',' | tr '\n' ',' && echo
